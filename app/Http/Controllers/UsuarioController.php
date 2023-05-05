@@ -99,6 +99,12 @@ class UsuarioController extends Controller
         //dd($usuario);
         return view("UsuarioForm")->with(['usuario'=> $usuario, "categorias"=> $categorias]);
      }
+     function show($id){
+        $usuario = Usuario::findOrFail($id);
+        $categorias = Categoria::orderBy('nome')->get();
+        //dd($usuario);
+        return view("UsuarioForm")->with(['usuario'=> $usuario, "categorias"=> $categorias]);
+     }
 
 //
 
